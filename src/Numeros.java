@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 public class Numeros {
@@ -17,5 +19,14 @@ public class Numeros {
         HashSet<Integer> hashSet = (HashSet<Integer>) numeros.stream()
                 .collect(Collectors.toSet());
         return hashSet;
+    }
+
+    static public void modificadorInventario(HashMap<String,Double> inventario){
+        BiConsumer<String, Double> calcDesc = (producto,precio)->{
+            double precioDesc = precio*.9;
+            System.out.println("Producto: "+ producto + "| Precio con Descuento: $" + precioDesc);
+        };
+
+        inventario.forEach(calcDesc);
     }
 }

@@ -31,4 +31,13 @@ void main() {
 
     System.out.println(otralista);
     System.out.println(Letras.mapaLongitudes(otralista));
+
+    HashMap<String,Double> inventario = new HashMap<>();
+    inventario.put("manzana", 35.0);
+    inventario.put("pera", 20.0);
+    inventario.put("uvas", 70.0);
+
+    System.out.println(inventario);
+    Numeros.modificadorInventario(inventario);
+
 }
