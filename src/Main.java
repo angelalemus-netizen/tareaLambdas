@@ -6,20 +6,29 @@ void main() {
     ArrayList<Integer> numeros = new ArrayList<>();
     numeros.add(1);
     numeros.add(2);
-    numeros.add(3);
-    numeros.add(4);
+    numeros.add(2);
+    numeros.add(0);
 
     System.out.println(numeros);
-    Numeros.elMultiplicador(numeros,-2);
-    System.out.println(numeros);
+    System.out.println(Numeros.elMultiplicador(numeros,-2));
 
     ArrayList<String> lista = new ArrayList<>(Arrays.asList(
             "manzana", "pera", "uvas", "Avispa", "p", "melon"
     ));
+    ArrayList<String> otralista = new ArrayList<>(Arrays.asList(
+            "manzana", "pera", "uvas", "Avispa", "p", "melon","melon"
+    ));
 
     char letrainico= 'm';
     System.out.println(lista);
-    Letras.filtroSelectivo(lista,letrainico,5);
-    System.out.println(lista);
+    System.out.println(Letras.filtroSelectivo(lista,letrainico,5));
 
+    System.out.println(lista);
+    System.out.println(Letras.convertorMayusculas(lista));
+
+    System.out.println(numeros);
+    System.out.println(Numeros.cuadradosUnicos(numeros));
+
+    System.out.println(otralista);
+    System.out.println(Letras.mapaLongitudes(otralista));
 }

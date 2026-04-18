@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 
 public class Letras {
@@ -12,5 +13,16 @@ public class Letras {
         ArrayList<String> convertidas= Palabras.stream().map(String::toUpperCase)
                 .collect(Collectors.toCollection(ArrayList::new));
         return convertidas;
+    }
+    public  static HashMap<String,Integer> mapaLongitudes(ArrayList<String> Palabras){
+
+        return Palabras.stream()
+                .collect(Collectors.toMap(
+                        palabra -> palabra,
+                        String::length,
+                        (long1,long2) -> long1,
+                        HashMap::new
+                ));
+
     }
 }
