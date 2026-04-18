@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Letras {
@@ -40,4 +38,19 @@ public class Letras {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
     }
+
+    public static HashSet<String> deduplicacionPalabras(String frase,int n) {
+        if(frase ==null ){
+            return null;
+        }
+
+        return Arrays.stream(frase.split("\\s+"))
+                .map(palabra-> palabra.replaceAll("[^\\p{L}\\p{Nd}]", ""))
+                .filter(p-> !p.isEmpty())
+                .map(String::toLowerCase)
+
+                .collect(Collectors.toCollection(HashSet::new));
+    }
+
+
 }

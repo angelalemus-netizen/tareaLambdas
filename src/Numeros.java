@@ -29,4 +29,9 @@ public class Numeros {
 
         inventario.forEach(calcDesc);
     }
+
+    static public void topePrecios(HashMap<String,Integer> mapa, int n) {
+        mapa.replaceAll((palabra,frecuencia) -> (frecuencia > n )? n : frecuencia);
+
+    }
 }

@@ -49,4 +49,19 @@ void main() {
     lista3.put("uvas", 5);
     System.out.println(lista3);
     System.out.println(Letras.clasificadorPalabras(lista3,8));
+
+    String texto = "Hola hola, ESTO es una !prueba: ¿UNA prueba funciona?";
+    Set<String> resultado= Letras.deduplicacionPalabras(texto,4);
+
+    System.out.println("Original: " + texto);
+    System.out.println("Unicas: " + resultado);
+
+    HashMap<String, Integer> misPalabras = new HashMap<>();
+    misPalabras.put("manzana", 10);
+    misPalabras.put("pera", 5);
+    misPalabras.put("uvas", 20);
+    System.out.println("Antes: " + misPalabras);
+    Numeros.topePrecios(misPalabras, 8);
+    System.out.println("Después: " + misPalabras);
+
 }
