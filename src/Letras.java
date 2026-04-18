@@ -25,4 +25,11 @@ public class Letras {
                 ));
 
     }
+
+    public static HashMap<String,Integer> mapaFrecuencias(ArrayList<String> Palabras){
+        HashMap<String,Integer> frecuencias= new HashMap<>();
+        Palabras.forEach(palabra ->
+                frecuencias.merge(palabra,1,Integer::sum));
+        return frecuencias;
+    }
 }

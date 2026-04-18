@@ -40,4 +40,6 @@ void main() {
     System.out.println(inventario);
     Numeros.modificadorInventario(inventario);
 
+    System.out.println(otralista);
+    System.out.println(Letras.mapaFrecuencias(otralista));
 }
