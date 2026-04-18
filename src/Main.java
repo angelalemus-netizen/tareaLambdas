@@ -10,8 +10,16 @@ void main() {
     numeros.add(4);
 
     System.out.println(numeros);
-    Numeros.elMultiplicador(numeros,3);
+    Numeros.elMultiplicador(numeros,-2);
     System.out.println(numeros);
 
+    ArrayList<String> lista = new ArrayList<>(Arrays.asList(
+            "manzana", "pera", "uvas", "Avispa", "p", "melon"
+    ));
+
+    char letrainico= 'm';
+    System.out.println(lista);
+    Letras.filtroSelectivo(lista,letrainico,5);
+    System.out.println(lista);
 
 }
