@@ -42,4 +42,11 @@ void main() {
 
     System.out.println(otralista);
     System.out.println(Letras.mapaFrecuencias(otralista));
+
+    HashMap<String,Integer> lista3 = new HashMap<>();
+    lista3.put("manzana", 10);
+    lista3.put("pera", 3);
+    lista3.put("uvas", 5);
+    System.out.println(lista3);
+    System.out.println(Letras.clasificadorPalabras(lista3,8));
 }

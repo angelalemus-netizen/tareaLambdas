@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Letras {
@@ -31,5 +32,12 @@ public class Letras {
         Palabras.forEach(palabra ->
                 frecuencias.merge(palabra,1,Integer::sum));
         return frecuencias;
+    }
+    public static ArrayList<String> clasificadorPalabras(HashMap<String,Integer> mapaFrec,int frecuencia) {
+        return (ArrayList<String>) mapaFrec.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() >=frecuencia)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
 }
