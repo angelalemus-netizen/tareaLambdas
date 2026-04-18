@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.stream.Collectors;
 
 public class Numeros {
 
@@ -11,5 +13,9 @@ public class Numeros {
         return numeros;
     }
 
-
+    static public HashSet<Integer> cuadradosUnicos(ArrayList<Integer> numeros){
+        HashSet<Integer> hashSet = (HashSet<Integer>) numeros.stream()
+                .collect(Collectors.toSet());
+        return hashSet;
+    }
 }
