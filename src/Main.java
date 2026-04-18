@@ -1,67 +1,87 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    ArrayList<Integer> numeros = new ArrayList<>();
-    numeros.add(1);
-    numeros.add(2);
-    numeros.add(2);
-    numeros.add(0);
+    System.out.println("Preubas ");
 
-    System.out.println(numeros);
-    System.out.println(Numeros.elMultiplicador(numeros,-2));
+    //elMultiplicador
+    ArrayList<Integer> nums = new ArrayList<>(Arrays.asList(1, 2, -3, 0));
+    System.out.println("elMultiplicador Original: " + nums);
+    Numeros.elMultiplicador(nums, 10);
+    System.out.println("Resultado (x10): " + nums);
+    System.out.print("\n");
 
-    ArrayList<String> lista = new ArrayList<>(Arrays.asList(
-            "manzana", "pera", "uvas", "Avispa", "p", "melon"
-    ));
-    ArrayList<String> otralista = new ArrayList<>(Arrays.asList(
-            "manzana", "pera", "uvas", "Avispa", "p", "melon","melon"
-    ));
+    //Lista vacía
+    ArrayList<Integer> vacia = new ArrayList<>();
+    System.out.println("Caso Vacío: " + Numeros.elMultiplicador(vacia, 5));
+    System.out.print("\n");
 
-    char letrainico= 'm';
-    System.out.println(lista);
-    System.out.println(Letras.filtroSelectivo(lista,letrainico,5));
+    //  filtroSelectivo
+    ArrayList<String> palabras = new ArrayList<>(Arrays.asList("Auto", "Avion", "Barco", "Sol", "Porra"));
+    System.out.println("filtroSelectivo \nOriginal: " + palabras);
+    // empiezan con 'A' o longitud menor a 4
+    Letras.filtroSelectivo(palabras, 'A', 4);
+    System.out.println("Resultado (Sin 'A' y largo >= 4): " + palabras);
+    System.out.print("\n");
 
-    System.out.println(lista);
-    System.out.println(Letras.convertorMayusculas(lista));
+    //  convertorMayusculas
+    ArrayList<String> mixtas = new ArrayList<>(Arrays.asList("hola", "Mundo"));
+    System.out.println("convertorMayusculas \nOriginal: " + mixtas);
+    System.out.println("Resultado: " + Letras.convertorMayusculas(mixtas));
+    System.out.print("\n");
 
-    System.out.println(numeros);
-    System.out.println(Numeros.cuadradosUnicos(numeros));
+    //  cuadradosUnicos
+    ArrayList<Integer> repetidos = new ArrayList<>(Arrays.asList(2, 2, 3, 4, 4));
+    System.out.println("cuadradosUnicos \nOriginal: " + repetidos);
+    System.out.println("Resultado: " + Numeros.cuadradosUnicos(repetidos));
+    System.out.print("\n");
 
-    System.out.println(otralista);
-    System.out.println(Letras.mapaLongitudes(otralista));
+    //  mapaLongitudes
+    ArrayList<String> listaMap = new ArrayList<>(Arrays.asList("Java", "Stream", "Code"));
+    System.out.println("mapaLongitudes \nOriginal: " + listaMap);
+    System.out.println("Resultado: " + Letras.mapaLongitudes(listaMap));
+    System.out.print("\n");
 
-    HashMap<String,Double> inventario = new HashMap<>();
-    inventario.put("manzana", 35.0);
-    inventario.put("pera", 20.0);
-    inventario.put("uvas", 70.0);
+    // modificadorInventario
+    HashMap<String, Double> inv = new HashMap<>();
+    inv.put("Laptop", 1000.0);
+    inv.put("Mouse", 20.0);
+    System.out.println("modificadorInventario\nprecio original "+inv);
+    System.out.println("Ejecucion:");
+    Numeros.modificadorInventario(inv);
+    System.out.print("\n");
 
-    System.out.println(inventario);
-    Numeros.modificadorInventario(inventario);
+    // mapaFrecuencias
+    ArrayList<String> repetidas = new ArrayList<>(Arrays.asList("uno", "dos", "uno", "tres", "dos", "uno"));
+    System.out.println("mapaFrecuencias \nOriginal: " + repetidas);
+    HashMap<String, Integer> frec = Letras.mapaFrecuencias(repetidas);
+    System.out.println("Resultado: " + frec);
+    System.out.print("\n");
 
-    System.out.println(otralista);
-    System.out.println(Letras.mapaFrecuencias(otralista));
+    // clasificadorPalabras
+    System.out.println("clasificadorPalabras \nDesde el mapa anterior (Frec >= 2):");
+    System.out.println("Resultado: " + Letras.clasificadorPalabras(frec, 2));
+    System.out.print("\n");
 
-    HashMap<String,Integer> lista3 = new HashMap<>();
-    lista3.put("manzana", 10);
-    lista3.put("pera", 3);
-    lista3.put("uvas", 5);
-    System.out.println(lista3);
-    System.out.println(Letras.clasificadorPalabras(lista3,8));
+    // deduplicacionPalabras
+    System.out.println("deduplicacionPalabras \nCaso Normal: Hola hola, mundo! (N=5)");
+    System.out.println("Resultado: " + Letras.deduplicacionPalabras("Hola hola, mundo!", 5));
 
-    String texto = "Hola hola, ESTO es una !prueba: ¿UNA prueba funciona?";
-    Set<String> resultado= Letras.deduplicacionPalabras(texto,4);
+    // Caso Edge- Nulo
+    System.out.println("Caso Nulo: " + Letras.deduplicacionPalabras(null, 2));
 
-    System.out.println("Original: " + texto);
-    System.out.println("Unicas: " + resultado);
+    // Caso Edge- Frase vacia o solo espacios
+    System.out.println("Caso Vacio: " + Letras.deduplicacionPalabras("   ", 1));
 
-    HashMap<String, Integer> misPalabras = new HashMap<>();
-    misPalabras.put("manzana", 10);
-    misPalabras.put("pera", 5);
-    misPalabras.put("uvas", 20);
-    System.out.println("Antes: " + misPalabras);
-    Numeros.topePrecios(misPalabras, 8);
-    System.out.println("Después: " + misPalabras);
+    // Caso Edge- Signos de puntuacion masivos
+    System.out.println("Caso Puntuacion: '¡¿Java?!... 100%' (N=1)");
+    System.out.println("Resultado: " + Letras.deduplicacionPalabras("¡¿Java?!... 100%", 1));
+    System.out.print("\n");
 
+    //topePrecios
+    HashMap<String, Integer> precios = new HashMap<>();
+    precios.put("Arroz", 50);
+    precios.put("Pan", 10);
+    System.out.println("topePrecios \nAntes (Tope 30): " + precios);
+    Numeros.topePrecios(precios, 30);
+    System.out.println("Despues: " + precios);
 }

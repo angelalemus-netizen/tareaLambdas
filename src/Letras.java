@@ -46,9 +46,8 @@ public class Letras {
 
         return Arrays.stream(frase.split("\\s+"))
                 .map(palabra-> palabra.replaceAll("[^\\p{L}\\p{Nd}]", ""))
-                .filter(p-> !p.isEmpty())
+                .filter(p-> !p.isEmpty() && p.length()>=n)
                 .map(String::toLowerCase)
-
                 .collect(Collectors.toCollection(HashSet::new));
     }
 
